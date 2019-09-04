@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <welcome/>
+    <router-view></router-view>
   </div>
 </template>
 
