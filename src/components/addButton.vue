@@ -6,9 +6,9 @@
         </div>
         <br/>
         <ol>
-            <li>
-                <input type="checkbox" class="done-todo">
-                <span>aaa</span>
+            <li v-for="index in this.$store.getters.getModlesLength" :key="index">
+                <input type="checkbox">
+                <span>{{this.$store.getters.getModleByIndex(index)}}</span>
             </li>
         </ol>
 
@@ -17,5 +17,10 @@
 <script>
     export default {
         name: 'AddButton',
+        beforeCreate() {
+
+            this.$store.dispatch("getAllModles");
+            window.console.log(this.$store.getters.getModlesLength);
+        }
     }
 </script>
