@@ -1,6 +1,7 @@
 <template>
     <div id = "index">
         <span>index</span>
+        <h3>姓名： {{userName}}</h3>
         <ul>
             <li>
                 <router-link to="/personnal">personnal</router-link>
@@ -16,7 +17,11 @@
     export default {
         data: function(){
             return {
+                userName : ""
             }
+        },
+        created(){
+            this.userName = this.$store.getters.getName;
         },
         methods : {
         }

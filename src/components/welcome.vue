@@ -7,7 +7,7 @@
     </div>
 </template>
 <script>
-    
+
     export default {
         data: function(){
             return {
@@ -17,7 +17,6 @@
         methods : {
             setUserName : function () {
                 this.$store.commit("setName",this.inputUserName);
-                window.console.log(this.$store.getters.getName);
                 this.$router.push({path : "index"});
             }
         }
