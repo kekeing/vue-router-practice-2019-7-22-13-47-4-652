@@ -1,8 +1,8 @@
 <template>
     <div>
         <div>
-            <input>
-            <button>Add</button>
+            <input v-model="inputMessage">
+            <button @click="addMolde">Add</button>
         </div>
         <br/>
         <ol>
@@ -17,10 +17,20 @@
 <script>
     export default {
         name: 'AddButton',
-        beforeCreate() {
-
+        data: function(){
+            return{
+                inputMessage: "",
+            }
+        },
+        created() {
             this.$store.dispatch("getAllModles");
             window.console.log(this.$store.getters.getModlesLength);
+        },
+        methods: {
+            addMolde: function () {
+                this.$store.dispatch("addModle",this.inputMessage);
+                this.$store.commit("overwirteMoldes");
+            }
         }
     }
 </script>

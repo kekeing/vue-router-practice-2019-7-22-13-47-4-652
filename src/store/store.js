@@ -24,6 +24,16 @@ const store =new Vuex.Store({
         },
         updateModles(state,modleList){
             state.modles = modleList;
+        },
+        addModle(state,modle){
+            state.modles.push(modle);
+        },
+        overwirteMoldes(state){
+            let oldModles = state.modles;
+            state.modles = [];
+            for (let i =0;i<oldModles.length;i++){
+                state.modles.push(oldModles[i]);
+            }
         }
     },
     actions : {
@@ -32,6 +42,13 @@ const store =new Vuex.Store({
                 .then(function (response) {
                     store.commit('updateModles', response.data);
                 });
+        },
+        addModle(store,message){
+            let newModle = {id : null,message:message,statevalue:"false"};
+            axios.post('http://localhost:8080/list',newModle)
+                .then(function (response) {
+                window.console.log(response);
+            })
         }
     }
 
