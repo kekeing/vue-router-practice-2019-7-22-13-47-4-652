@@ -4,13 +4,16 @@
         <br>
         <router-link to="/index">index</router-link>
         <Header/>
+        <addButton/>
     </div>
 </template>
 <script>
     import Header from './header.vue'
+    import addButton from './addButton.vue'
     export default {
         components: {
-          Header,
+            Header,
+            addButton,
         },
         data: function(){
             return {
