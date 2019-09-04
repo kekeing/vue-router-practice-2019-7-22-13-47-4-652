@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import welcome from './components/welcome.vue'
 export default {
   name: 'app',
   components: {
-    welcome,
   }
 }
 </script>
